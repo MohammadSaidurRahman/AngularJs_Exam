@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <br />
+    <br />
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <input type="text" hidden ng-model="objProduct.ID" />
+                    <input type="text" class="form-control" placeholder="Enter name" ng-model="objProduct.Name" />
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="Enter price" ng-model="objProduct.Price" />
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="Enter quanity" ng-model="objProduct.Quantity" />
+                </td>
+                <td>
+                    <button class="btn btn-success" ng-click="SaveProduct()">Save</button>
+                    <button class="btn btn-primary" ng-click="UpdateProduct()">Update</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br />
+    <div>
+        <table class="table table-bordered table-striped table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+            <tr ng-repeat="p in ProductList | filter:search">
+                <td>{{p.ID}}</td>
+                <td>{{p.Name}}</td>
+                <td>{{p.Price}}</td>
+                <td>{{p.Quantity}}</td>
+                <td>
+                    <button class="btn btn-success" ng-click="EditProduct(p)">Edit</button>
+                    <button class="btn btn-primary" s ng-click="DeleteProduct(p.ID)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <span><b>Search : </b> </span><input type="text" ng-model="search" class="form-control" style="border: 2px solid black" />
+</body>
+</html>
